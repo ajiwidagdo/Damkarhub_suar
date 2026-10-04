@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Dark mode via class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============ DAMKARHUB SUAR — Design Tokens ============
+   Primer MERAH (darurat), aksen NAVY (eksperimen SUAR).
+   Light default (ikut mockup), dark via toggle. */
+@theme {
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-500: #ef4444;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+
+  --color-navy-700: #16294d;
+  --color-navy-800: #0f2242;
+  --color-navy-900: #0a1a33;
+  --color-navy-950: #060f1f;
+
+  --color-rescue-400: #fbbf24;
+  --color-rescue-500: #f59e0b;
+
+  --color-ok-400: #34d399;
+  --color-ok-500: #10b981;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
+
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --ink: #16294d;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1220;
+  --surface: #111c33;
+  --ink: #e8eefb;
+  --muted: #8fa0bd;
+  --line: #1e2f52;
+  color-scheme: dark;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+/* Input anti iOS zoom */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Safe area untuk bottom nav */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
